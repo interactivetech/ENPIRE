@@ -50,6 +50,8 @@ def _examples_run(args: argparse.Namespace) -> int:
     if not script.is_file():
         raise SystemExit(f"Example is not runnable yet: {args.example}")
     namespace = runpy.run_path(str(script))
+    if args.output is None:
+        return int(namespace["main"]())
     return int(namespace["main"](output=args.output))
 
 
@@ -93,7 +95,7 @@ def build_parser() -> argparse.ArgumentParser:
     examples_list.set_defaults(handler=_examples_list)
     examples_run = example_commands.add_parser("run", help="Run a hardware-free example")
     examples_run.add_argument("example")
-    examples_run.add_argument("--output", type=Path, default=Path("outputs/hello-environment"))
+    examples_run.add_argument("--output", type=Path)
     examples_run.set_defaults(handler=_examples_run)
 
     skills = commands.add_parser("skills", help="Discover reusable code-as-policy skills")

@@ -113,6 +113,13 @@ calibration = [
     "scipy>=1.15",
 ]
 
+# CPU-only planar Push-T simulator. Kept separate from robot and CUDA extras.
+sim-pusht = [
+    "gym-pusht==0.1.6",
+    # gym-pusht 0.1.6 uses Pymunk's pre-7 collision-handler API.
+    "pymunk>=6.6,<7",
+]
+
 vlm = [
     "google-genai>=1.0",
     "openai>=1.0",

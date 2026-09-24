@@ -19,6 +19,7 @@ submodules step and the extras matrix. This file covers what those dependencies
 | CUDA Python (`cuda.core`) | Runtime compilation and launch of cuRobo v0.8 CUDA kernels | `planning-local`; selected through `nvidia-curobo[cu12]` | [NVIDIA/cuda-python](https://github.com/NVIDIA/cuda-python) |
 | NVIDIA Warp | cuRobo geometry and perception utilities | `planning-local`; pinned to `1.12.0` | [NVIDIA/warp](https://github.com/NVIDIA/warp) |
 | MuJoCo | YAM simulation, models, gravity compensation, and IK | `planning`, `control-yam` | [google-deepmind/mujoco](https://github.com/google-deepmind/mujoco) |
+| Gymnasium Push-T | 2D CPU physics benchmark environment | `sim-pusht`; pinned to `gym-pusht==0.1.6` | [gym-pusht on PyPI](https://pypi.org/project/gym-pusht/) |
 | Mink | MuJoCo differential IK | `planning`, `control-yam` | [kevinzakka/mink](https://github.com/kevinzakka/mink) |
 | Pink / Pinocchio | Alternate rigid-body kinematics | `planning` | [stephane-caron/pink](https://github.com/stephane-caron/pink) |
 | PyRoki | JAX kinematic optimization | `planning`; vendored in `third_party/pyroki` | [chungmin99/pyroki](https://github.com/chungmin99/pyroki) |

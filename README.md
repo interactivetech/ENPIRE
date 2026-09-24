@@ -94,6 +94,7 @@ along with vision-based reward evaluation.
 Examples to build from:
 
 - [Hello environment](enpire/env/examples/00_hello_environment/README.md): a minimal reset–execute–verify loop.
+- [Simulated Push-T](enpire/env/examples/20_simulated_pusht/README.md): a hardware-free 2D Push-T physics task.
 - [Real object pickup](enpire/env/examples/10_real_object_pick/README.md): CaP composition of perception, planning, and robot control.
 - [Push-T](enpire/env/docs/NEW_TASK.md#push-t-reference-implementation): a physical reset workflow and heuristic policy improvement.
 

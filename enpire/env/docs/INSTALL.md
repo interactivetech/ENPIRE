@@ -37,6 +37,21 @@ uv run enpire doctor
 uv run pytest -q tests/enpire
 ```
 
+## Simulated Push-T
+
+The hardware-free Push-T example uses the optional `sim-pusht` extra:
+
+```bash
+uv sync --extra dev --extra sim-pusht
+uv run enpire examples run 20_simulated_pusht
+```
+
+`uv sync` replaces the environment. Include any other extras you still need
+in the same command. The simulation uses a random-action baseline; its run
+artifacts include the final coverage score and, in `rgb_array` mode, a final
+frame and an animated GIF with one frame per action. Open the GIF on a desktop
+with `xdg-open outputs/simulated-pusht/animation.gif`.
+
 ## Real YAM practitioner install
 
 `planning-local` installs the vendored Apache-2.0 cuRobo v0.8.0 package with

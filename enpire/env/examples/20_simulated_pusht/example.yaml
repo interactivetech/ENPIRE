@@ -1,0 +1,5 @@
+name: simulated-pusht
+what: Run the Push-T physics task in a local 2D simulator without robot hardware.
+needs: uv sync --extra dev --extra sim-pusht
+time: under 1 minute
+safety: no hardware motion
