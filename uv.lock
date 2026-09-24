@@ -813,6 +813,10 @@ real-rl = [
     { name = "tyro", marker = "sys_platform == 'linux'" },
     { name = "uvicorn", marker = "sys_platform == 'linux'" },
 ]
+sim-pusht = [
+    { name = "gym-pusht", marker = "sys_platform == 'linux'" },
+    { name = "pymunk", marker = "sys_platform == 'linux'" },
+]
 vision = [
     { name = "opencv-python", marker = "sys_platform == 'linux'" },
     { name = "pillow", marker = "sys_platform == 'linux'" },
@@ -848,6 +852,7 @@ requires-dist = [
     { name = "fastapi", marker = "extra == 'vision-local'", specifier = ">=0.115" },
     { name = "google-genai", marker = "extra == 'vlm'", specifier = ">=1.0" },
     { name = "graspnetapi", marker = "extra == 'grasping-local'" },
+    { name = "gym-pusht", marker = "extra == 'sim-pusht'", specifier = "==0.1.6" },
     { name = "gymnasium", marker = "extra == 'control-yam'", specifier = ">=1.2" },
     { name = "gymnasium", marker = "extra == 'real-rl'", specifier = ">=1.2" },
     { name = "httpx", marker = "extra == 'dev'", specifier = ">=0.27" },
@@ -890,6 +895,7 @@ requires-dist = [
     { name = "portal", marker = "extra == 'planning'", specifier = ">=3.7.3" },
     { name = "portal", marker = "extra == 'planning-local'", specifier = ">=3.7.3" },
     { name = "portal", marker = "extra == 'real-rl'", specifier = ">=3.7.3" },
+    { name = "pymunk", marker = "extra == 'sim-pusht'", specifier = ">=6.6,<7" },
     { name = "pynput", marker = "extra == 'real-rl'", specifier = ">=1.7" },
     { name = "pyrealsense2", marker = "sys_platform == 'linux' and extra == 'calibration'", specifier = "==2.56.5.9235" },
     { name = "pyrealsense2", marker = "sys_platform == 'linux' and extra == 'camera-realsense'", specifier = "==2.56.5.9235" },
@@ -935,7 +941,7 @@ requires-dist = [
     { name = "yourdfpy", marker = "extra == 'planning'", specifier = "==0.0.59" },
     { name = "yourdfpy", marker = "extra == 'planning-local'", specifier = "==0.0.59" },
 ]
-provides-extras = ["vision", "vision-local", "grasping-local", "planning", "planning-local", "control-yam", "control-i2rt", "camera-realsense", "camera-zed", "calibration", "vlm", "cap", "real-rl", "pld", "dev"]
+provides-extras = ["vision", "vision-local", "grasping-local", "planning", "planning-local", "control-yam", "control-i2rt", "camera-realsense", "camera-zed", "calibration", "sim-pusht", "vlm", "cap", "real-rl", "pld", "dev"]
 
 [[package]]
 name = "etils"
@@ -1193,6 +1199,23 @@ dependencies = [
     { name = "trimesh", marker = "sys_platform == 'linux'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/90/1b/a65f5ea9787b226c2f3a9db134b8f4be752ac820429fd01a3b04aca4e0dc/graspnetAPI-1.2.11.tar.gz", hash = "sha256:54176d87aa3faa1058454bbb03cccef718c1005c3a374addd07925bd8abadc0f", size = 82487, upload-time = "2023-12-31T04:02:26.947Z" }
+
+[[package]]
+name = "gym-pusht"
+version = "0.1.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "gymnasium", marker = "sys_platform == 'linux'" },
+    { name = "opencv-python", marker = "sys_platform == 'linux'" },
+    { name = "pygame", marker = "sys_platform == 'linux'" },
+    { name = "pymunk", marker = "sys_platform == 'linux'" },
+    { name = "scikit-image", marker = "sys_platform == 'linux'" },
+    { name = "shapely", marker = "sys_platform == 'linux'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8c/f1/e856b105ec298bd22235362d6cf3b3ccf355ac1e6f6a7df9c20d1a5127da/gym_pusht-0.1.6.tar.gz", hash = "sha256:b748dc5282c41b504df16359df26d3c2184e194edd20cde691fcda9fdc277005", size = 15796, upload-time = "2025-10-13T09:06:15.273Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d0/b3/330dc180fc32d0a7f99d9ac6caec0413771882665ea1da17899e248e577a/gym_pusht-0.1.6-py3-none-any.whl", hash = "sha256:c0785a29795f17c97c58b00ffaed9e45be5996dbc864d863a39a857403010206", size = 16906, upload-time = "2025-10-13T09:06:14.067Z" },
+]
 
 [[package]]
 name = "gymnasium"
@@ -2545,6 +2568,21 @@ name = "pyliblzfse"
 version = "0.4.1"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/2c/ba/a4bc465d36f6aafbff89da1bf67bcc6a97475b1d2300a74a778dcb293cef/pyliblzfse-0.4.1.tar.gz", hash = "sha256:bb0b899b3830c02fdf3dbde48ea59611833f366fef836e5c32cf8145134b7d3d", size = 47666, upload-time = "2020-07-09T02:50:17.52Z" }
+
+[[package]]
+name = "pymunk"
+version = "6.11.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cffi", marker = "sys_platform == 'linux'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/10/c6/ea45f078e138c133d6c0c00457941bb4bd9554be9a763801f32f3470f426/pymunk-6.11.1.tar.gz", hash = "sha256:1917849f63e1f699df21d6a1f5d1c250adddbae25e9c124f0bed765154c94ef8", size = 3362971, upload-time = "2025-02-09T15:37:13.948Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d0/b2/d1d5c164642050ca52cbbd366f90842ee530f178aecc406be32b18460b67/pymunk-6.11.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2a2022f2150025ae01709f07c33254c3ee189c95a9c6b40210277975a6d0929f", size = 1065202, upload-time = "2025-02-09T15:35:17.233Z" },
+    { url = "https://files.pythonhosted.org/packages/6e/95/4af7fdbd8e4bd318452322d75272c36992611ba443bc49b71bbbd8fc4a36/pymunk-6.11.1-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:b98a3a64afc74346424614bc95889b005f1efa8dc21984a5f7c01792de21528d", size = 988542, upload-time = "2025-02-09T15:35:19.646Z" },
+    { url = "https://files.pythonhosted.org/packages/e4/4f/2098292f8da1311a1d6c29bd2d60ecf858c56377c528ac6e80dbf20a6cf0/pymunk-6.11.1-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:15b037818cdb39653d8e6e54a535481d70c503249b07f96a3a66a1fb47855dc0", size = 974863, upload-time = "2025-02-09T15:35:23.071Z" },
+    { url = "https://files.pythonhosted.org/packages/2c/b5/f414a6b042f5461d8ebe9a6ca9ea2ce1ce80ad9915c1b32ad521963b3e6a/pymunk-6.11.1-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:12c739186207043fc8931db3e3d02824c40a1c3cfd0038bc7079cbd257e6dbab", size = 1036729, upload-time = "2025-02-09T15:35:26.132Z" },
+]
 
 [[package]]
 name = "pynput"
