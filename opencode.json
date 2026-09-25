@@ -1,0 +1,26 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "vllm/z-ai/glm-5.3-flash-ud-q2",
+  "instructions": [
+    "enpire/policy/autoresearch_instruction.md",
+    "enpire/env/examples/20_simulated_pusht/README.md"
+  ],
+  "provider": {
+    "vllm": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "ENPIRE vLLM endpoint",
+      "options": {
+        "baseURL": "{env:API_URL}",
+        "apiKey": "{env:API_KEY}"
+      },
+      "models": {
+        "z-ai/glm-5.3-flash-ud-q2": {
+          "name": "GLM 5.3 Flash UD Q2",
+          "options": {
+            "reasoningEffort": "low"
+          }
+        }
+      }
+    }
+  }
+}
