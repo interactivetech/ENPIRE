@@ -1,17 +1,17 @@
-# OpenCode prompt: Push-T autoresearch v3
+# OpenCode prompt: Push-T autoresearch with GPT-6 Luna
 
-Launch OpenCode from the root of the `opencode-vllm-test-v3` worktree, then paste this prompt:
+Launch OpenCode from the root of the `opencode-gpt6-luna-pusht` worktree, then paste this prompt:
 
 ```text
 Read AGENTS.md, enpire/policy/autoresearch_instruction.md, enpire/env/examples/20_simulated_pusht/README.md, autoresearch_runs/pusht/EXPERIMENT_PROTOCOL.md, and autoresearch_runs/pusht/TIMING_LOGGING.md.
 
-Before editing anything, run `pwd`, `git rev-parse --show-toplevel`, and `git branch --show-current`. Confirm that the current directory is the Git root and the branch is `opencode-vllm-test-v3`. If not, stop and report the paths. Do not switch checkouts.
+Before editing anything, run `pwd`, `git rev-parse --show-toplevel`, and `git branch --show-current`. Confirm that the current directory is the Git root and the branch is `opencode-gpt6-luna-pusht`. Read `opencode.json` and confirm it selects `cliproxy/gpt-6-luna` with reasoning effort `low`. If any check fails, stop and report the paths/config. Do not switch checkouts.
 
 Objective: improve final T-block coverage for the simulated Push-T task. Seed 0, 300 steps, coverage score, and the 0.95 success threshold are fixed. Edit only policy/action-selection code in `enpire/env/examples/20_simulated_pusht/example.py`. Do not change simulator dynamics, reset behavior, observations, reward, verification, safety, thresholds, step count, seed, or artifact format. Never use real hardware.
 
 There is one baseline run plus at most TEN numbered candidate iterations. These are the entire simulator-run budget. One iteration means exactly one full 300-step ENPIRE episode, launched through `time_experiment.py`. Do not run scratch experiments, partial episodes, diagnostic probes, parameter sweeps, duplicate evaluations, or any other Push-T simulator command. Do not write or execute scratch policy scripts. Existing non-simulator unit checks may be run only if they do not launch Push-T; the single wrapped episode is the offline Push-T evaluation.
 
-Keep all experiment material beneath this Git root. Use `outputs/autoresearch/pusht/experiments/baseline/` for the baseline and `outputs/autoresearch/pusht/experiments/iteration-01/` through `iteration-10/` for candidates. Do not use `/tmp`, system temp directories, `$HOME`, or another checkout. These output folders are Git-ignored; do not force-add or commit their contents.
+Keep all experiment material beneath this Git root. Use `outputs/autoresearch/pusht/experiments/baseline/` for the baseline and `outputs/autoresearch/pusht/experiments/iteration-01/` through `iteration-10/` for candidates. Do not write experiment material to temporary directories outside this Git root, `$HOME`, or another checkout. These output folders are Git-ignored; do not force-add or commit their contents.
 
 For each run, create its folder before editing or launching. Write `hypothesis.md` before changing the policy. Save the exact policy used as `policy_used.py`; for candidates, also save `policy_before.py` and `policy.diff` against the current best. Put ENPIRE episode artifacts in that folder's `run/` child and the completed decision in `decision.md`. Use unique IDs `pusht-baseline` and `pusht-iteration-01` through `pusht-iteration-10`.
 

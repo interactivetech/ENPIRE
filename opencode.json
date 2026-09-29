@@ -1,21 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "vllm/z-ai/glm-5.3-flash-ud-q2",
+  "model": "cliproxy/gpt-6-luna",
   "instructions": [
     "enpire/policy/autoresearch_instruction.md",
-    "enpire/env/examples/20_simulated_pusht/README.md"
+    "enpire/env/examples/20_simulated_pusht/README.md",
+    "autoresearch_runs/pusht/EXPERIMENT_PROTOCOL.md",
+    "autoresearch_runs/pusht/TIMING_LOGGING.md"
   ],
   "provider": {
-    "vllm": {
+    "cliproxy": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "ENPIRE vLLM endpoint",
+      "name": "CLIProxyAPI",
       "options": {
         "baseURL": "{env:API_URL}",
-        "apiKey": "{env:API_KEY}"
+        "apiKey": "{env:API_KEY_2}"
       },
       "models": {
-        "z-ai/glm-5.3-flash-ud-q2": {
-          "name": "GLM 5.3 Flash UD Q2",
+        "gpt-6-luna": {
+          "name": "GPT-6 Luna",
           "options": {
             "reasoningEffort": "low"
           }
